@@ -24,7 +24,7 @@ export default function ContactPage() {
         >
           {/* Anti-spam & redirect (optional) */}
           <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://your-portfolio.com/thank-you" />
+          <input type="hidden" name="_next" value="https://presentation-ashy-nine.vercel.app/thanks" />
 
           <div className="flex flex-col">
             <label className="mb-1">Name</label>
