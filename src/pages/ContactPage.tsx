@@ -4,7 +4,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-custom-background text-custom-neonGreen-soft orbitron">
       <NavBar />
-      <main className="flex flex-col items-center justify-center px-4 py-10 pt-20">
+      <main className="flex flex-col items-center justify-center px-4 py-10 pt-24">
         <h1 className="text-3xl md:text-4xl font-bold mb-6 text-custom-neonGreen">Contact Me</h1>
         <p className="mb-4 text-center max-w-xl">
           Feel free to reach out for collaborations, work or just to say hi!
@@ -12,7 +12,7 @@ export default function ContactPage() {
 
         {/* Contact Info */}
         <div className="mb-8 text-center space-y-2">
-          <p><span className="font-semibold text-custom-neonGreen">Email:</span> <a href="mailto:lucaswalica@gmail.com" className="underline hover:text-custom-neonGreen-deep">lucaswalica@gmail.com</a></p>
+          <p><span className="font-semibold text-custom-neonGreen">Email:</span> <a href="mailto:lucawali21@gmail.com" className="underline hover:text-custom-neonGreen-deep">lucawali21@gmail.com</a></p>
           <p><span className="font-semibold text-custom-neonGreen">Phone:</span> +34 677 367 124</p>
         </div>
 
