@@ -56,22 +56,23 @@ export default function ProjectPage() {
     return (
         <div>
             <NavBar></NavBar>
-            <main className="px-6 pt-24 pb-12 max-w-5xl mx-auto">
-                <h1 className="text-4xl font-bold mb-8 border-b-2 border-custom-neonGreen pb-2 text-center">
+            <main className="px-6 pt-24 pb-12 max-w-5xl mx-auto  bg-custom-background orbitron min-h-screen min-w-full">
+                <h1 className="text-4xl font-bold mb-8 border-b-2 border-custom-neonGreen pb-2 text-center text-custom-neonGreen">
                     My Projects
                 </h1>
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
-                {projects.map(proj => (
-                    <ProjectCard 
-                    key={proj.title}
-                    title={proj.title}
-                    description={proj.description}
-                    tech={proj.tech}
-                    link={proj.link}
-                    />
-                ))}
-                </section>
+                <div className="flex justify-center w-full">
+                  <div className="w-5/6 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {projects.map(proj => (
+                        <ProjectCard 
+                        key={proj.title}
+                        title={proj.title}
+                        description={proj.description}
+                        tech={proj.tech}
+                        link={proj.link}
+                        />
+                    ))}
+                  </div>
+                </div>
             </main>
         </div>
     )
