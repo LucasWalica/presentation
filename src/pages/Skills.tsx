@@ -26,10 +26,10 @@ export default function SkillPage() {
   return (
     <div className="min-h-screen bg-custom-background orbitron text-custom-neonGreen">
       <NavBar />
-      <main className="w-11/12 mx-auto flex flex-col items-center pt-20 space-y-12">
+      <main className="w-11/12 mx-auto flex flex-col items-center space-y-12">
 
         {/* Languages */}
-        <h2 className="text-2xl md:text-4xl font-bold underline neon-glow">Languages</h2>
+        <h2 className="text-2xl md:text-4xl font-bold underline neon-glow pt-28">Languages</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <SkillCard icon={pythonIcon} text="Python is my main language for web apps, scripting, automation, and data manipulation." />
           <SkillCard icon={typescriptIcon} text="TypeScript improves code quality and tooling in Angular and React projects." />
