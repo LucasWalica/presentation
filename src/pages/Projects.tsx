@@ -1,7 +1,8 @@
 import NavBar from "../components/NavBar";
 import ProjectCard from "../components/ProjectCard";
+
 export default function ProjectPage() {
-   const projects = [
+     const projects = [
   {
     title: "FindYourRoom - Rental & Roommate Platform",
     description:
@@ -53,27 +54,28 @@ export default function ProjectPage() {
   }
 ];
 
-    return (
-        <div>
-            <NavBar></NavBar>
-            <main className="px-6 pt-24 pb-12 max-w-5xl mx-auto  bg-custom-background orbitron min-h-screen min-w-full">
-                <h1 className="text-4xl font-bold mb-8 border-b-2 border-custom-neonGreen pb-2 text-center text-custom-neonGreen">
-                    My Projects
-                </h1>
-                <div className="flex justify-center w-full">
-                  <div className="w-5/6 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {projects.map(proj => (
-                        <ProjectCard 
-                        key={proj.title}
-                        title={proj.title}
-                        description={proj.description}
-                        tech={proj.tech}
-                        link={proj.link}
-                        />
-                    ))}
-                  </div>
-                </div>
-            </main>
+
+  return (
+    <div className="min-h-screen bg-custom-background orbitron">
+      <NavBar />
+      <main className="px-6 pt-24 pb-12 max-w-5xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-bold mb-8 border-b-2 border-custom-neonGreen pb-3 text-center text-custom-neonGreen neon-glow">
+          My Projects
+        </h1>
+        <div className="flex justify-center w-full">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+            {projects.map(proj => (
+              <ProjectCard
+                key={proj.title}
+                title={proj.title}
+                description={proj.description}
+                tech={proj.tech}
+                link={proj.link}
+              />
+            ))}
+          </div>
         </div>
-    )
+      </main>
+    </div>
+  );
 }
