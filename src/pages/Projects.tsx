@@ -1,14 +1,37 @@
+import { useState } from "react";
 import NavBar from "../components/NavBar";
 import ProjectCard from "../components/ProjectCard";
 
 export default function ProjectPage() {
-     const projects = [
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+
+  const handleCardClick = (project: any) => {
+    setSelectedProject(project);
+    setShowPopUp(true);
+  };
+
+  const handleClosePopUp = () => {
+    setShowPopUp(false);
+    setSelectedProject(null);
+  };
+
+  
+
+  const projects = [
   {
     title: "FindYourRoom - Rental & Roommate Platform",
     description:
       "A comprehensive platform for tenants and landlords to manage rentals, search rooms, and connect with compatible roommates. Integrates property management, social networking, and compatibility matching features.",
     tech: ["Django REST Framework", "JWT", "Angular", "PostgreSQL", "Redis", "Celery", "Bash", "Tailwind CSS", "Docker"],
     link: ["https://github.com/LucasWalica/FindYourRoomAPP"]
+  },
+  {
+    title: "STL Marketplace ",
+    description:
+      "(currently in development) A marketplace for buying and selling 3D printable STL files, featuring user accounts, product listings, and secure transactions. The main idea is to help 3D designers monetize their creations via collections.",
+    tech: ["Django REST", "Angular 20", "sqlite3", "Three.js", "Tailwind CSS"],
+    link: ["https://github.com/LucasWalica/STLMarketPlace"]
   },
   {
     title: "Pandemic - Interactive Web Board Game",
@@ -54,7 +77,6 @@ export default function ProjectPage() {
   }
 ];
 
-
   return (
     <div className="min-h-screen bg-custom-background orbitron">
       <NavBar />
@@ -64,18 +86,46 @@ export default function ProjectPage() {
         </h1>
         <div className="flex justify-center w-full">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map(proj => (
-              <ProjectCard
-                key={proj.title}
-                title={proj.title}
-                description={proj.description}
-                tech={proj.tech}
-                link={proj.link}
-              />
-            ))}
+            {projects.map((proj) => {
+              return (
+                <div key={proj.title}>
+                  <ProjectCard
+                    title={proj.title}
+                    description={proj.description}
+                    tech={proj.tech}
+                    onClick={() => handleCardClick(proj)}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </main>
+
+      {/* POP UP */}
+      {showPopUp && selectedProject && (
+        <div className="fixed inset-0 flex items-center justify-center bg-custom-black/70 z-50 px-4">
+          <div className="bg-custom-neonGreen-deep text-custom-tulip rounded-2xl shadow-lg max-w-2xl w-full p-6 relative animate-fadeIn">
+            {/* Botón cerrar */}
+            <button
+              onClick={handleClosePopUp}
+              className="absolute top-3 right-3 p-4 rounded-md text-custom-tulip bg-custom-neonGreen-deep hover:text-custom-neonGreen transition"
+            >
+              ✕
+            </button>
+
+            {/* Contenido del pop up */}
+            <h2 className="text-2xl font-bold mb-4 text-center press-start-2p-regular">
+              {selectedProject.title}
+            </h2>
+            <p className="mb-4 text-center text-xl orbitron">
+              {selectedProject.description}
+            </p>
+
+            {/* Aquí podrás meter más detalles más adelante */}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
