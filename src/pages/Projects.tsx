@@ -29,7 +29,8 @@ export default function ProjectPage() {
 
   const projects = [
   {
-    title: "FindYourRoom - Rental & Roommate Platform",
+    title: "FindYourRoomApp",
+    cardDescription: "A platform for managing rentals, searching rooms, and connecting with compatible roommates.",
     description:
       "A comprehensive platform for tenants and landlords to manage rentals, search rooms, and connect with compatible roommates. Integrates property management, social networking, and compatibility matching features.",
     tech: ["Django REST Framework", "JWT", "Angular", "PostgreSQL", "Redis", "Celery", "Bash", "Tailwind CSS", "Docker"],
@@ -39,6 +40,7 @@ export default function ProjectPage() {
   },
   {
     title: "STL Marketplace ",
+    cardDescription: "(in development) A marketplace for buying and selling 3D printable STL files.",
     description:
       "(currently in development) A marketplace for buying and selling 3D printable STL files, featuring user accounts, product listings, and secure transactions. The main idea is to help 3D designers monetize their creations via collections.",
     tech: ["Django REST", "Angular 20", "sqlite3", "Three.js", "Tailwind CSS"],
@@ -47,7 +49,8 @@ export default function ProjectPage() {
     image: stlMarket
   },
   {
-    title: "Pandemic - Interactive Web Board Game",
+    title: "Pandemic Board Game",
+    cardDescription: "A web adaptation of the popular board game Pandemic, where players collaborate to save humanity from diseases.",
     description:
       "An engaging web adaptation of the popular board game Pandemic, where players collaborate to save humanity from multiple diseases. Built with a robust backend and intuitive UI.",
     tech: ["Laravel", "Tailwind CSS", "Angular", "JWT"],
@@ -65,7 +68,7 @@ export default function ProjectPage() {
     image: discordImage
   },
   {
-    title: "Freelancer Marketplace Web App",
+    title: "Freelancer Marketplace Web",
     description:
       "A platform connecting companies and freelancers, enabling job postings, applications, and project management with secure user authentication.",
     tech: ["Django", "Tailwind CSS", "MVC", "PostgreSQL"],
@@ -75,6 +78,7 @@ export default function ProjectPage() {
   },
   {
     title: "Basic Forum Application",
+    cardDescription: "A simple forum web app with user authentication, post creation, and real-time updates.",
     description:
       "A simple but effective forum web app featuring user authentication, post creation, and real-time updates, designed with a modern React frontend and Django REST API backend.",
     tech: ["Django REST Framework", "React", "Tailwind CSS", "JWT", "SQLite"],
@@ -105,22 +109,20 @@ export default function ProjectPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-8 border-b-2 border-custom-neonGreen pb-3 text-center text-custom-neonGreen neon-glow">
           My Projects
         </h1>
-        <div className="flex justify-center w-full">
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((proj) => {
-              return (
-                <div key={proj.title}>
-                  <ProjectCard
-                    title={proj.title}
-                    description={proj.description}
-                    tech={proj.tech}
-                    onClick={() => handleCardClick(proj)}
-                  />
-                </div>
-              );
-            })}
+        <div className="w-full flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+            {projects.map((proj) => (
+              <ProjectCard
+                key={proj.title}
+                title={proj.title}
+                description={proj.cardDescription || proj.description}
+                tech={proj.tech}
+                onClick={() => handleCardClick(proj)}
+              />
+            ))}
           </div>
         </div>
+
       </main>
 
       {/* POP UP */}
