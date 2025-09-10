@@ -6,7 +6,7 @@ export default function NavBar() {
   const [showNavBar, setShowNavBar] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
+  
   const links = [
     { name: "About Me", path: "/" },
     { name: "Projects", path: "/projects" },
