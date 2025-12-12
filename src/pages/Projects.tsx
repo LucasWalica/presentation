@@ -3,11 +3,11 @@ import NavBar from "../components/NavBar";
 import ProjectCard from "../components/ProjectCard";
 import { motion } from "framer-motion";
 import stlMarket  from "../../public/stlMarket.png";
-import blogImage from "../../public/blog.png";
+//import blogImage from "../../public/blog.png";
 import discordImage from "../../public/discordBot.png";
 import pandemicImage from "../../public/pandemic.png";
 import findYourRoomImage from "../../public/findYourRoom.png";
-import freelanceImage from "../../public/freelance_project.png";
+//import freelanceImage from "../../public/freelance_project.png";
 import subastas from "../../public/subastas.png";
 
 export default function ProjectPage() {
