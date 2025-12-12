@@ -8,7 +8,7 @@ import discordImage from "../../public/discordBot.png";
 import pandemicImage from "../../public/pandemic.png";
 import findYourRoomImage from "../../public/findYourRoom.png";
 import freelanceImage from "../../public/freelance_project.png";
-
+import subastas from "../../public/subastas.png";
 
 export default function ProjectPage() {
   const [showPopUp, setShowPopUp] = useState(false);
@@ -39,6 +39,23 @@ export default function ProjectPage() {
     image: findYourRoomImage
   },
   {
+    title:"Auctions Real time",
+    cardDescription: "A fullstack web app for managing auctions, bids, items...",
+    description: "A dynamic web platform for creating, managing, and participating in online auctions in real-time. Built with Django for the backend and Angular for the frontend, the application integrates Firebase for secure authentication and WebSockets for live auction updates. Key features include"+
+    "User Authentication & Roles: Secure login system using JWT and Firebase Custom Tokens."+
+    "Auction Management: Create, edit, and manage live and timed auctions with multiple items."+
+    "Item Management: Add, update, and organize items with images, descriptions, and starting prices."+
+    "Real-Time Bidding: Users can place bids with instant updates on current highest offers."+
+    "Sales Tracking: Manage payments and view auction results with status filters (Pending, Paid, Confirmed, Dispute)"+
+    "Backend Automation: Uses Celery and Redis to handle scheduled auctions and automated workflows."+
+    "Responsive Design: Optimized for desktop and mobile interfaces, ensuring a seamless user experience."+
+    "This project demonstrates strong skills in full-stack development, real-time systems, and integrating multiple services, showcasing both technical depth and attention to user experience.",
+    tech: ["Django REST Framework", "JWT cookies", "Firebase", "Postgresql", "Docker", "Redis", "Celery", "Tailwindcss", "Angular 21", "Daphne", "Nginx", "Bash"],
+    link: ["https://github.com/LucasWalica/subastas_real_time"],
+    documentation: "",
+    image: subastas
+  },
+  {
     title: "STL Marketplace ",
     cardDescription: "(in development) A marketplace for buying and selling 3D printable STL files.",
     description:
@@ -67,6 +84,7 @@ export default function ProjectPage() {
     documentation: "https://deepwiki.com/LucasWalica/discordBot",
     image: discordImage
   },
+  /* 
   {
     title: "Freelancer Marketplace Web",
     description:
@@ -86,6 +104,7 @@ export default function ProjectPage() {
     documentation: "https://deepwiki.com/LucasWalica/django_react_forum",
     image: blogImage
   },
+  */
   {
     title: "Pokemon Data Analytics",
     description:
