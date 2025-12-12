@@ -10,45 +10,51 @@ interface ProjectCardProps {
 export default function ProjectCard({ title, description, tech, onClick }: ProjectCardProps) {
   return (
     <motion.div
+      onClick={onClick}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="flex flex-col justify-between bg-custom-softGray p-6 rounded-xl shadow-lg hover:shadow-custom-neonGreen hover:scale-105 transition-transform duration-300
-                 min-h-[400px] max-h-[400px] w-full sm:w-80 md:w-96"
+      whileHover={{ scale: 1.04 }}
+      transition={{ duration: 0.35 }}
+      className="
+        cursor-pointer border border-custom-neonGreen/30 rounded-2xl 
+        bg-white/5 backdrop-blur-md shadow-md hover:shadow-custom-neonGreen/40 
+        p-6 flex flex-col gap-4 w-full sm:w-80 md:w-96 transition
+      "
     >
-      {/* Title */}
-      <h2 className="flex justify-center items-center text-2xl font-bold mb-3 orbitron text-custom-darkGray bg-custom-neonGreen-deep rounded-md p-3 text-center neon-glow min-h-[72px]">
+      <h2 className="text-2xl font-bold text-center text-custom-neonGreen">
         {title}
       </h2>
 
-      {/* Description */}
-      <p className="text-custom-neonGreen-soft mb-4 flex-1 overflow-hidden text-ellipsis 
-                    text-sm sm:text-base md:text-sm">
+      <p className="text-custom-neonGreen-soft text-sm flex-1 overflow-hidden">
         {description}
       </p>
 
-      {/* Tech tags */}
-      <div className="flex flex-wrap gap-2 mb-4 min-h-[80px]">
+      <div className="flex flex-wrap gap-2 mt-auto">
         {tech.map((t) => (
           <span
             key={t}
-            className="text-sm px-3 py-1 bg-custom-darkGray rounded text-custom-neonGreen font-semibold hover:bg-custom-neonGreen hover:text-black transition-colors duration-200 cursor-default"
+            className="
+              text-xs px-3 py-1 rounded-full 
+              bg-custom-darkGray/80 text-custom-neonGreen 
+              border border-custom-neonGreen/20
+            "
           >
             {t}
           </span>
         ))}
       </div>
 
-      {/* Button */}
-      <div className="flex justify-center mt-auto">
-        <button
-          className="btn-neon w-full"
-          onClick={onClick}
-        >
-          View Details
-        </button>
-      </div>
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        className="
+          w-full mt-2 py-2 rounded-lg text-black font-bold
+          bg-custom-neonGreen shadow-md shadow-custom-neonGreen/20
+          hover:bg-custom-neonGreen-soft transition
+        "
+      >
+        View Details
+      </motion.button>
     </motion.div>
   );
 }

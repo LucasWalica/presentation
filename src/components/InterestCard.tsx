@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+
 interface InterestCardProps {
   title: string;
   description: string;
@@ -7,14 +8,16 @@ interface InterestCardProps {
 export default function InterestCard({ title, description }: InterestCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="bg-custom-softGray p-6 rounded-xl shadow-md hover:shadow-xl hover:scale-105 transition-transform text-custom-neonGreen"
+      whileHover={{ scale: 1.05, y: -5 }}
+      transition={{ duration: 0.3 }}
+      className="
+        flex flex-col p-6 rounded-2xl bg-white/5 backdrop-blur-md
+        border border-custom-neonGreen/30 shadow-md hover:shadow-custom-neonGreen/40
+        text-center min-h-[220px]
+      "
     >
       <h3 className="text-xl font-bold mb-2 neon-glow">{title}</h3>
-      <p>{description}</p>
+      <p className="text-custom-neonGreen text-sm sm:text-base">{description}</p>
     </motion.div>
   );
 }

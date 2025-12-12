@@ -1,7 +1,7 @@
 import { useState } from "react";
 import NavBar from "../components/NavBar";
 import ProjectCard from "../components/ProjectCard";
-
+import { motion } from "framer-motion";
 import stlMarket  from "../../public/stlMarket.png";
 import blogImage from "../../public/blog.png";
 import discordImage from "../../public/discordBot.png";
@@ -126,82 +126,115 @@ export default function ProjectPage() {
       </main>
 
       {/* POP UP */}
-      {showPopUp && selectedProject && (
-        <div onClick={handleClosePopUp} className="fixed inset-0 flex items-center justify-center bg-custom-black/70 z-50 px-4">
-          <div onClick={(e) => e.stopPropagation()} className="bg-custom-neonGreen-deep text-custom-tulip rounded-2xl shadow-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative animate-fadeIn">
-            {/* Botón cerrar */}
-            <button
-              onClick={handleClosePopUp}
-              className="absolute top-3 right-3 p-4 rounded-md text-custom-tulip bg-custom-neonGreen-deep hover:text-custom-neonGreen transition"
-            >
-              ✕
-            </button>
+     {showPopUp && selectedProject && (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+    onClick={handleClosePopUp}
+  >
+    <motion.div
+      initial={{ scale: 0.85, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.85, opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      onClick={(e) => e.stopPropagation()}
+      className="
+        relative bg-custom-darkGray/90 border border-custom-neonGreen/40 
+        text-custom-neonGreen rounded-2xl shadow-xl shadow-custom-neonGreen/30
+        backdrop-blur-xl w-full max-w-3xl 
+        max-h-[90vh] overflow-y-auto
+        p-6
+      "
+    >
+      {/* Close Button */}
+      <button
+        onClick={handleClosePopUp}
+        className="
+          absolute top-4 right-4 text-xl font-bold 
+          text-custom-neonGreen hover:text-white transition
+        "
+      >
+        ✕
+      </button>
 
-            {/* Contenido del pop up */}
-            <h2 className="text-2xl font-bold mb-4 text-center press-start-2p-regular">
-              {selectedProject.title}
-            </h2>
-            <p className="mb-4 text-center text-xl orbitron">
-              {selectedProject.description}
-            </p>
-            <figure>
-              {selectedProject.image && (
-                <img 
-                  src={selectedProject.image} 
-                  alt={selectedProject.title} 
-                  className="w-full h-auto mb-4 rounded-lg"
-                />
-              )}
-              <div className="mb-4">
-                <h3 className="text-lg font-semibold mb-2 underline">Technologies Used:</h3>
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.tech && selectedProject.tech.map((t: string) => (
-                    <span
-                      key={t}
-                      className="text-sm px-3 py-1 bg-custom-darkGray rounded text-custom-neonGreen font-semibold hover:bg-custom-neonGreen hover:text-black transition-colors duration-200 cursor-default"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              {selectedProject.link && (
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold mb-2 underline">Links:</h3>
-                  <ul className="list-disc list-inside">
-                    {selectedProject.link.map((link: string, index: number) => (
-                      <li key={index}>
-                        <a
-                          href={link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-custom-darkGray hover:underline"
-                        >
-                          {link}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {selectedProject.documentation && (
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold mb-2 underline">Documentation:</h3>
-                  <a
-                    href={selectedProject.documentation}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-custom-darkGray hover:underline"
-                  >
-                    {selectedProject.documentation}
-                  </a>
-                </div>
-              )}
-            </figure>
-            {/* Aquí podrás meter más detalles más adelante */}
-          </div>
+      {/* Title */}
+      <h2 className="text-3xl font-bold text-center mb-4 ">
+        {selectedProject.title}
+      </h2>
+
+      {/* Description */}
+      <p className="text-center text-lg text-custom-neonGreen-soft mb-6">
+        {selectedProject.description}
+      </p>
+
+      {/* Image */}
+      {selectedProject.image && (
+        <img
+          src={selectedProject.image}
+          alt={selectedProject.title}
+          className="rounded-xl shadow-lg w-full mb-6"
+        />
+      )}
+
+      {/* Technologies */}
+      <div className="mb-6">
+        <h3 className="text-xl font-semibold mb-2 underline">Technologies Used</h3>
+        <div className="flex flex-wrap gap-2">
+          {selectedProject.tech?.map((t: string) => (
+            <span
+              key={t}
+              className="
+                text-sm px-3 py-1 rounded-full bg-custom-darkGray
+                text-custom-neonGreen border border-custom-neonGreen/20
+              "
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Links */}
+      {selectedProject.link && (
+        <div className="mb-6">
+          <h3 className="text-xl font-semibold mb-2 underline">Links</h3>
+          <ul className="list-disc list-inside">
+            {selectedProject.link.map((link: string, idx: number) => (
+              <li key={idx}>
+                <a
+                  href={link}
+                  target="_blank"
+                  className="hover:text-white transition underline"
+                  rel="noopener noreferrer"
+                >
+                  {link}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
+
+      {/* Documentation */}
+      {selectedProject.documentation && (
+        <div className="mb-4">
+          <h3 className="text-xl font-semibold mb-2 underline">Documentation</h3>
+          <a
+            href={selectedProject.documentation}
+            target="_blank"
+            className="hover:text-white transition underline"
+            rel="noopener noreferrer"
+          >
+            {selectedProject.documentation}
+          </a>
+        </div>
+      )}
+    </motion.div>
+  </motion.div>
+)}
+
     </div>
   );
 }

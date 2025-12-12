@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-// SkillCard component
+
 interface SkillCardProps {
   icon: string;
   text: string;
@@ -8,14 +8,17 @@ interface SkillCardProps {
 export default function SkillCard({ icon, text }: SkillCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="bg-white/10 flex flex-row items-center space-x-4 border-b border-custom-neonGreen py-4 px-4 rounded-lg hover:scale-105 hover:shadow-custom-neonGreen transition-transform duration-300"
+      whileHover={{ scale: 1.05, y: -5 }}
+      transition={{ duration: 0.3 }}
+      className="
+        flex flex-col items-center gap-4 p-6 rounded-2xl 
+        bg-white/5 backdrop-blur-md border border-custom-neonGreen/30
+        shadow-md hover:shadow-custom-neonGreen/40 transition
+        min-h-[200px] text-center
+      "
     >
-      <img src={icon} alt="Skill icon" width={64} height={64} />
-      <p className="text-custom-neonGreen-soft orbitron text-lg">{text}</p>
+      <img src={icon} alt="skill-icon" className="w-16 h-16 object-contain" />
+      <p className="text-sm sm:text-base text-custom-neonGreen">{text}</p>
     </motion.div>
   );
 }
