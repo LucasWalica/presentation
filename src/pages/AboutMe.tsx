@@ -1,5 +1,4 @@
 import NavBar from "../components/NavBar";
-import { motion } from "framer-motion";
 import AboutCard from "../components/AboutCard";
 export default function AboutMePage() {
   return (
