@@ -1,23 +1,53 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import AboutMePage from './pages/AboutMe'
-import ProjectPage from './pages/Projects'
-import ContactPage from './pages/ContactPage'
-import SkillPage from './pages/Skills'
-import ThanksPage from './pages/Thanks'
+import { useState, useEffect } from 'react'
+import NavBar from './components/NavBar'
+import HeroSection from './components/HeroSection.tsx'
+import AboutSection from './components/AboutSection.tsx'
+import ExperienceSection from './components/ExperienceSection.tsx'
+import ProjectsSection from './components/ProjectsSection.tsx'
+import SkillsSection from './components/SkillsSection.tsx'
+import ContactSection from './components/ContactSection.tsx'
+import ScrollToTop from './components/ScrollToTop.tsx'
 
 function App() {
-  
+  const [activeSection, setActiveSection] = useState('home')
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'experience', 'projects', 'skills', 'contact']
+      const scrollPosition = window.scrollY + 100
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const { offsetTop, offsetHeight } = element
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<AboutMePage/>}/>
-        <Route path="/projects" element={<ProjectPage/>}/>
-        <Route path="/skills" element={<SkillPage/>}/>
-        <Route path="/contact" element={<ContactPage/>}/>
-        <Route path="/thanks" element={<ThanksPage/>}/>
-      </Routes>
-    </Router>
+    <div className="min-h-screen bg-custom-background text-custom-neonGreen orbitron">
+      <NavBar activeSection={activeSection} />
+      
+      <main className='pt-36 lg:pt-24'>
+        <HeroSection />
+        <AboutSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <ContactSection />
+      </main>
+
+      <ScrollToTop />
+    </div>
   )
 }
 

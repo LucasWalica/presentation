@@ -77,6 +77,7 @@ export default function ProjectPage() {
   },
   {
     title: "Discord Server Moderation Bot",
+    cardDescription: "A feature-rich Discord bot for server moderation, role management, and user achievements.",
     description:
       "A feature-rich Discord bot that handles server moderation, manages roles, and awards achievements to users, improving community engagement and security.",
     tech: ["Django REST Framework", "Docker", "Celery", "Redis"],
@@ -107,23 +108,27 @@ export default function ProjectPage() {
   */
   {
     title: "Pokemon Data Analytics",
+    cardDescription: "Data science project analyzing Pokémon stats to identify optimal team strategies.",
     description:
       "A data science project analyzing Pokémon stats to identify optimal team strategies. Utilizes Python libraries for data processing and visualization.",
     tech: ["Python", "CSV", "Pandas", "Matplotlib", "NumPy"],
-    link: ["https://github.com/LucasWalica/PokemonAnalisisCSV"]
+    link: ["https://github.com/LucasWalica/PokemonAnalisisCSV"],
+    image: null
   },
   {
     title: "Library Management System",
+    cardDescription: "Full-stack web application for managing library operations with modern Java frameworks.",
     description:
       "A full-stack web application for managing library operations including customer accounts, item catalog, and loan tracking, built with modern Java frameworks.",
     tech: ["Spring Boot", "Angular", "H2 Database", "Maven", "Java", "Angular Material"],
-    link: ["https://github.com/LucasWalica/Ejercicio1", "https://github.com/LucasWalica/TutorialBackend"]
+    link: ["https://github.com/LucasWalica/Ejercicio1", "https://github.com/LucasWalica/TutorialBackend"],
+    image: null
   }
 ];
 
   return (
     <div className="min-h-screen bg-custom-background orbitron">
-      <NavBar />
+      <NavBar activeSection="projects" />
       <main className="px-6 pt-24 pb-12 max-w-5xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold mb-8 border-b-2 border-custom-neonGreen pb-3 text-center text-custom-neonGreen neon-glow">
           My Projects

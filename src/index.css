@@ -2,9 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html {
   background-color: black;
+}
+
+/* Fix mobile horizontal overflow */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Ensure mobile padding */
+main {
+  padding-top: 0;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 1rem;
+  }
 }
 
 /*font 1*/
@@ -28,4 +44,19 @@ html {
          hover:bg-custom-neonGreen hover:text-custom-background 
          duration-150 transition cursor-pointer 
          border-2 border-custom-neonGreen-deep m-2;
+}
+
+.neon-glow {
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.8),
+               0 0 20px rgba(57, 255, 20, 0.6),
+               0 0 30px rgba(57, 255, 20, 0.4),
+               0 0 40px rgba(57, 255, 20, 0.2);
+}
+
+.animate-gradient {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.delay-1000 {
+  animation-delay: 1s;
 }

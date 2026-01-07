@@ -1,45 +1,69 @@
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function NavBar() {
+interface NavBarProps {
+  activeSection: string;
+}
+
+export default function NavBar({ activeSection }: NavBarProps) {
   const [showNavBar, setShowNavBar] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
   
   const links = [
-    { name: "About Me", path: "/" },
-    { name: "Projects", path: "/projects" },
-    { name: "Skills", path: "/skills" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", path: "#home" },
+    { name: "About", path: "#about" },
+    { name: "Experience", path: "#experience" },
+    { name: "Projects", path: "#projects" },
+    { name: "Skills", path: "#skills" },
+    { name: "Contact", path: "#contact" },
   ];
 
   const handleNavigate = (path: string) => {
-    navigate(path);
+    const element = document.querySelector(path);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
     setShowNavBar(false);
+  };
+
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/CV_Lucas_Walica.pdf';
+    link.download = 'CV_Lucas_Walica.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
     <div className="w-full fixed top-0 left-0 z-50 backdrop-blur-sm bg-custom-softGray/90 shadow-lg">
       
       {/* Desktop Navbar */}
-      <div className="hidden md:flex justify-end space-x-6 p-4 orbitron">
-        {links.map(link => (
+      <div className="hidden lg:flex justify-between items-center p-4 orbitron">
+        <span className="font-bold text-xl text-custom-neonGreen">Lucas Walica</span>
+        <div className="flex space-x-6">
+          {links.map(link => (
+            <button
+              key={link.name}
+              onClick={() => handleNavigate(link.path)}
+              className={`btn-neon px-4 py-2 transition-colors duration-300 ${
+                activeSection === link.path.substring(1) ? "bg-custom-neonGreen text-black" : ""
+              }`}
+            >
+              {link.name}
+            </button>
+          ))}
           <button
-            key={link.name}
-            onClick={() => handleNavigate(link.path)}
-            className={`btn-neon px-4 py-2 transition-colors duration-300 ${
-              location.pathname === link.path ? "bg-custom-neonGreen text-black" : ""
-            }`}
+            onClick={handleDownloadCV}
+            className="btn-neon px-4 py-2 bg-custom-neonGreen text-black hover:bg-transparent hover:text-custom-neonGreen transition-all duration-300"
           >
-            {link.name}
+            Download CV
           </button>
-        ))}
+        </div>
       </div>
 
       {/* Mobile Navbar */}
-      <div className="md:hidden flex justify-between items-center p-4 orbitron">
-        <span className="font-bold text-xl text-custom-neonGreen">Portfolio</span>
+      <div className="lg:hidden flex justify-between items-center p-4 orbitron">
+        <span className="font-bold text-xl text-custom-neonGreen">Lucas Walica</span>
         <button
           onClick={() => setShowNavBar(prev => !prev)}
           className="btn-neon px-3 py-2"
@@ -55,19 +79,25 @@ export default function NavBar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden flex flex-col space-y-2 p-4 bg-custom-softGray/95 shadow-lg"
+            className="lg:hidden flex flex-col space-y-2 p-4 bg-custom-softGray/95 shadow-lg"
           >
             {links.map(link => (
               <button
                 key={link.name}
                 onClick={() => handleNavigate(link.path)}
                 className={`btn-neon px-4 py-2 transition-colors duration-300 ${
-                  location.pathname === link.path ? "bg-custom-neonGreen text-black" : ""
+                  activeSection === link.path.substring(1) ? "bg-custom-neonGreen text-black" : ""
                 }`}
               >
                 {link.name}
               </button>
             ))}
+            <button
+              onClick={handleDownloadCV}
+              className="btn-neon px-4 py-2 bg-custom-neonGreen text-black hover:bg-transparent hover:text-custom-neonGreen transition-all duration-300"
+            >
+              Download CV
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

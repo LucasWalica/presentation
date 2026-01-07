@@ -20,17 +20,22 @@ export default function ProjectCard({ title, description, tech, onClick }: Proje
         cursor-pointer border border-custom-neonGreen/30 rounded-2xl 
         bg-white/5 backdrop-blur-md shadow-md hover:shadow-custom-neonGreen/40 
         p-6 flex flex-col gap-4 w-full sm:w-80 md:w-96 transition
+        h-full min-h-[320px]
       "
     >
-      <h2 className="text-2xl font-bold text-center text-custom-neonGreen">
+      <h2 className="text-2xl font-bold text-center text-custom-neonGreen flex-shrink-0">
         {title}
       </h2>
 
-      <p className="text-custom-neonGreen-soft text-sm flex-1 overflow-hidden">
+      <p className="text-custom-neonGreen-soft text-sm flex-1 overflow-hidden" style={{
+        display: '-webkit-box',
+        WebkitLineClamp: 4,
+        WebkitBoxOrient: 'vertical'
+      }}>
         {description}
       </p>
 
-      <div className="flex flex-wrap gap-2 mt-auto">
+      <div className="flex flex-wrap gap-2 mt-auto flex-shrink-0">
         {tech.map((t) => (
           <span
             key={t}
@@ -50,7 +55,7 @@ export default function ProjectCard({ title, description, tech, onClick }: Proje
         className="
           w-full mt-2 py-2 rounded-lg text-black font-bold
           bg-custom-neonGreen shadow-md shadow-custom-neonGreen/20
-          hover:bg-custom-neonGreen-soft transition
+          hover:bg-custom-neonGreen-soft transition flex-shrink-0
         "
       >
         View Details

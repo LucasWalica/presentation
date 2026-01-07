@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'safe': '375px',
+      },
       colors: {
         // 🎯 Fondo principal
         "custom-background": '#0f0c29',      // Negro azulado profundo
@@ -30,6 +33,9 @@ export default {
       animation: {
         'fade-in-down': 'fadeInDown 0.4s ease-out',
         'fade-out-up': 'fadeOutUp 0.4s ease-in',
+        'gradient': 'gradient 3s ease infinite',
+        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+        'float': 'float 3s ease-in-out infinite',
       },
       keyframes: {
         fadeInDown: {
@@ -46,9 +52,34 @@ export default {
             transform: 'translateY(-10px)',
           },
         },
+        gradient: {
+          '0%, 100%': {
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-position': 'right center'
+          }
+        },
+        pulseGlow: {
+          '0%, 100%': {
+            'box-shadow': '0 0 20px rgba(57, 255, 20, 0.5)'
+          },
+          '50%': {
+            'box-shadow': '0 0 40px rgba(57, 255, 20, 0.8)'
+          }
+        },
+        float: {
+          '0%, 100%': {
+            transform: 'translateY(0px)'
+          },
+          '50%': {
+            transform: 'translateY(-10px)'
+          }
+        }
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }
-
