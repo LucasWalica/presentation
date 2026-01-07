@@ -47,6 +47,7 @@ function App() {
       </main>
 
       <ScrollToTop />
+      <Analytics />
     </div>
   )
 }
