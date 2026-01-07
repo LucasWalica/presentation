@@ -2,10 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NavBarProps {
-  activeSection: string;
+  activeSection?: string;
 }
 
-export default function NavBar({ activeSection }: NavBarProps) {
+export default function NavBar({ activeSection = "" }: NavBarProps) {
   const [showNavBar, setShowNavBar] = useState(false);
   
   const links = [

@@ -27,11 +27,7 @@ export default function ProjectCard({ title, description, tech, onClick }: Proje
         {title}
       </h2>
 
-      <p className="text-custom-neonGreen-soft text-sm flex-1 overflow-hidden" style={{
-        display: '-webkit-box',
-        WebkitLineClamp: 4,
-        WebkitBoxOrient: 'vertical'
-      }}>
+      <p className="text-custom-neonGreen-soft text-sm flex-1 line-clamp-4">
         {description}
       </p>
 
