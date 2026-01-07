@@ -8,7 +8,7 @@ import ProjectsSection from './components/ProjectsSection.tsx'
 import SkillsSection from './components/SkillsSection.tsx'
 import ContactSection from './components/ContactSection.tsx'
 import ScrollToTop from './components/ScrollToTop.tsx'
-
+import { Analytics } from "@vercel/analytics/next"
 function App() {
   const [activeSection, setActiveSection] = useState('home')
 
