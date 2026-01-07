@@ -181,7 +181,7 @@ export default function HeroSection() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          className="text-custom-neonGreen-soft text-center"
+          className="text-custom-neonGreen-soft text-center m-16 lg:m-12 xl:m-10"
         >
           <div className="text-sm mb-2">Scroll Down</div>
           <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -25,7 +25,7 @@ import typescriptIcon from "../assets/typescript.png";
 function SectionTitle({ text }: { text: string }) {
   return (
     <motion.h2 
-      className="text-2xl md:text-4xl font-bold underline neon-glow pt-12 text-custom-neonGreen"
+      className="text-2xl md:text-4xl font-bold underline neon-glow pt-12 text-custom-neonGreen m-6"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -80,7 +80,7 @@ export default function SkillsSection() {
           
           {/* Languages */}
           <div className="w-full max-w-5xl">
-            <SectionTitle text="Languages"/>
+            <SectionTitle text="Languages" />
             <GridContainer>
               <SkillCard icon={pythonIcon} text="Python is my main language for web apps, scripting, automation, and data manipulation." />
               <SkillCard icon={typescriptIcon} text="TypeScript improves code quality and tooling in Angular and React projects." />
