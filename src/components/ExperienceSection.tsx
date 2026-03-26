@@ -3,6 +3,20 @@ import { useState } from 'react'
 
 const experiences = [
   {
+    title: "Senior Backend Developer",
+    company: "SPHERA (client: Nuek / Getnet - Banco Santander)",
+    period: "Feb 2026 - Present",
+    type: "Remote",
+    description: "Backend development for financial services infrastructure within Banco Santander's payments ecosystem.",
+    achievements: [
+      "Developed backend services on .NET for financial infrastructure",
+      "Engaged in long-term contract within a large-scale enterprise banking environment",
+      "Contributed to Banco Santander's Getnet payments ecosystem"
+    ],
+    technologies: [".NET", "Enterprise Architecture", "Banking Infrastructure"],
+    icon: "🏦"
+  },
+  {
     title: "Sole Lead Developer",
     company: "Fundación Princesa de Asturias",
     period: "Aug 2025 - Nov 2025",
