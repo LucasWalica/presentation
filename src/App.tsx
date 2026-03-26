@@ -9,6 +9,8 @@ import SkillsSection from './components/SkillsSection.tsx'
 import ContactSection from './components/ContactSection.tsx'
 import ScrollToTop from './components/ScrollToTop.tsx'
 import { Analytics } from "@vercel/analytics/react"
+import MatrixBackground from './components/MatrixBackground'
+
 function App() {
   const [activeSection, setActiveSection] = useState('home')
 
@@ -35,7 +37,9 @@ function App() {
 
   return (
     <div className="min-h-screen bg-custom-background text-custom-neonGreen orbitron">
+      <MatrixBackground />
       <NavBar activeSection={activeSection} />
+
       
       <main className='pt-36 lg:pt-24'>
         <HeroSection />

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import lucasCV from '../assets/Lucas_Walica_CV.pdf';
 
 export default function HeroSection() {
   const [isDownloading, setIsDownloading] = useState(false)
@@ -9,8 +10,8 @@ export default function HeroSection() {
     // Simulate download delay for better UX
     setTimeout(() => {
       const link = document.createElement('a')
-      link.href = '/CV_Lucas_Walica.pdf'
-      link.download = 'CV_Lucas_Walica.pdf'
+      link.href = lucasCV
+      link.download = 'Lucas_Walica_CV.pdf'
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
@@ -57,7 +58,8 @@ export default function HeroSection() {
 
           {/* Main Title */}
           <motion.h1 
-            className="text-4xl sm:text-8xl font-bold mb-6 bg-gradient-to-r from-custom-neonGreen via-custom-cyberBlue to-custom-neonGreen bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] drop-shadow-2xl leading-tight"
+            className="text-4xl sm:text-8xl font-bold mb-6 bg-gradient-to-r from-custom-neonGreen via-custom-cyberBlue to-custom-neonGreen bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] drop-shadow-2xl leading-tight glitch-text"
+            data-text="Lucas Walica"
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.8, type: "spring", stiffness: 100 }}
@@ -83,8 +85,8 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
           >
-            Passionate about building scalable web applications, automation, and innovative tech solutions. 
-            Trilingual developer with expertise in Django, Angular, React, and modern web technologies.
+            Passionate about building scalable web applications, automation, and industrial solutions. 
+            Full Stack developer with expertise in Django, .NET, Java, Angular, React, and Docker.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -156,7 +158,7 @@ export default function HeroSection() {
             transition={{ delay: 1.1, duration: 0.8 }}
           >
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-custom-neonGreen mb-2">2+</div>
+              <div className="text-3xl md:text-4xl font-bold text-custom-neonGreen mb-2">4+</div>
               <div className="text-sm text-custom-mutedWhite">Years Experience</div>
             </div>
             <div className="text-center">

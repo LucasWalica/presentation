@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import lucasCV from '../assets/Lucas_Walica_CV.pdf';
 
 interface NavBarProps {
   activeSection?: string;
@@ -27,8 +28,8 @@ export default function NavBar({ activeSection = "" }: NavBarProps) {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/CV_Lucas_Walica.pdf';
-    link.download = 'CV_Lucas_Walica.pdf';
+    link.href = lucasCV;
+    link.download = 'Lucas_Walica_CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
