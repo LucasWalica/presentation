@@ -61,23 +61,56 @@ main {
   animation-delay: 1s;
 }
 
-/* Custom Scrollbar */
+/* Glow Utilities */
+.neon-glow-green {
+  text-shadow: 0 0 5px rgba(57, 255, 20, 0.5), 0 0 10px rgba(57, 255, 20, 0.3);
+}
+
+.neon-glow-blue {
+  text-shadow: 0 0 5px rgba(0, 243, 255, 0.5), 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.neon-glow-purple {
+  text-shadow: 0 0 5px rgba(188, 19, 254, 0.5), 0 0 10px rgba(188, 19, 254, 0.3);
+}
+
+.neon-border-glow {
+  filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.2));
+}
+
+/* Animations (Simplified) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Custom Cursor Overrides */
+* {
+  cursor: none !important;
+}
+
+@media (max-width: 1024px) {
+  * {
+    cursor: auto !important;
+  }
+}
+
+/* Custom Scrollbar (Refined) */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f0c29;
+  background: #0a0a0c;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #39ff14;
+  background: linear-gradient(to bottom, #39ff14, #00f3ff, #bc13fe);
   border-radius: 10px;
-  border: 2px solid #0f0c29;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #6bff56;
 }
 
 /* Form Styles */
